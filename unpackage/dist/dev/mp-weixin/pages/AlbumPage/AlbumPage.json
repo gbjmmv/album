@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "相册",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "uni-popup-dialog": "../../node-modules/@dcloudio/uni-ui/lib/uni-popup-dialog/uni-popup-dialog",
+    "uni-popup": "../../node-modules/@dcloudio/uni-ui/lib/uni-popup/uni-popup",
+    "uni-load-more": "../../node-modules/@dcloudio/uni-ui/lib/uni-load-more/uni-load-more"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/user/user",
+    "pages/confirm/confirm",
+    "pages/album_list/album_list",
+    "pages/profile/profile",
+    "pages/album/album",
+    "pages/AlbumPage/AlbumPage",
+    "pages/PhotoDetail/PhotoDetail",
+    "pages/FavoritesPage/FavoritesPage",
+    "pages/other/other",
+    "pages/Comments/Comments",
+    "pages/coupon/coupon"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "text": "个人主页",
+        "pagePath": "pages/user/user",
+        "iconPath": "static/image/user.png",
+        "selectedIconPath": "static/image/user-h.png"
+      },
+      {
+        "text": "其他功能待定",
+        "pagePath": "pages/other/other",
+        "iconPath": "/static/image/classify.png",
+        "selectedIconPath": "static/image/classify-h.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

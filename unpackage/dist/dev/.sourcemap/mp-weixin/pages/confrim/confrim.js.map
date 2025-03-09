@@ -1,0 +1,1 @@
+{"version":3,"file":"confrim.js","sources":["../../HBuilderX.4.45.2025010502/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvY29uZnJpbS9jb25mcmltLnZ1ZQ"],"sourcesContent":["import MiniProgramPage from 'C:/Users/ADMIN/Documents/HBuilderProjects/宝宝照片/pages/confrim/confrim.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

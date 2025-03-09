@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "好好看照片！",
+  "usingComponents": {
+    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "uni-popup": "../../node-modules/@dcloudio/uni-ui/lib/uni-popup/uni-popup",
+    "uni-popup-dialog": "../../node-modules/@dcloudio/uni-ui/lib/uni-popup-dialog/uni-popup-dialog",
+    "uni-popup-message": "../../node-modules/@dcloudio/uni-ui/lib/uni-popup-message/uni-popup-message"
+  }
+}

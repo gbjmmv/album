@@ -1,0 +1,1 @@
+{"version":3,"file":"other.js","sources":["../../HBuilderX.4.45.2025010502/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvb3RoZXIvb3RoZXIudnVl"],"sourcesContent":["import MiniProgramPage from 'C:/Users/ADMIN/Documents/HBuilderProjects/宝宝照片/pages/other/other.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

@@ -1,0 +1,71 @@
+
+.container .right.data-v-eec36e84 {
+  padding-right: 35rpx;
+  text-align: right;
+}
+.container .right .title.data-v-eec36e84 {
+  font-size: 40rpx;
+}
+.container .left image.data-v-eec36e84 {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 10rpx;
+  transform: translateY(7rpx);
+}
+.container.data-v-eec36e84 {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  width: 400rpx;
+  height: 150rpx;
+  transform: translateX(30rpx);
+}
+.showPic.data-v-eec36e84 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rpx;
+  gap: 20rpx; /* 设置图片之间的间距 */
+  margin-left: 3rpx;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx
+}
+.showPic image.data-v-eec36e84 {
+  width: 230rpx;
+  object-fit: cover;
+  height: 230rpx;
+}
+.choose-album .icon.data-v-eec36e84 {
+  margin-right: 20rpx;
+}
+.choose-album .album.data-v-eec36e84 {
+  margin-left: auto
+}
+.choose-album .text.data-v-eec36e84 {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-left: 20rpx;
+}
+.choose-album.data-v-eec36e84 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.confirm-container.data-v-eec36e84 {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+}
+.upload-btn-container.data-v-eec36e84 {
+  padding: 20px 16px;
+  background-color: #ffffff;
+}
+.upload-btn.data-v-eec36e84 {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  background-color: #07c160;
+  color: #ffffff;
+  font-size: 16px;
+  border-radius: 4px;
+}

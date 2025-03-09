@@ -1,0 +1,218 @@
+
+.coupon-page.data-v-96ba783d {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 标签栏样式 */
+.tab-container.data-v-96ba783d {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  padding: 20rpx 0;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+.tab-item.data-v-96ba783d {
+  position: relative;
+  padding: 16rpx 20rpx;
+  font-size: 30rpx;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tab-item.active.data-v-96ba783d {
+  color: #ff6b81;
+  font-weight: bold;
+}
+.tab-line.data-v-96ba783d {
+  position: absolute;
+  bottom: -10rpx;
+  width: 60rpx;
+  height: 6rpx;
+  background-color: #ff6b81;
+  border-radius: 3rpx;
+}
+
+/* 内容区域样式 */
+.content-area.data-v-96ba783d {
+  flex: 1;
+  padding: 30rpx;
+  position: relative;
+}
+.bg-0.data-v-96ba783d {
+  background-color: #fff5f7; /* 待使用背景色 */
+}
+.bg-1.data-v-96ba783d {
+  background-color: #f0f8ff; /* 待兑现背景色 */
+}
+.bg-2.data-v-96ba783d {
+  background-color: #f5fff0; /* 已完成背景色 */
+}
+
+/* 创建按钮 */
+.create-btn.data-v-96ba783d {
+  position: fixed;
+  bottom: 80rpx;
+  right: 40rpx;
+  height: 80rpx;
+  background-color: #ff6b81;
+  color: white;
+  border-radius: 50rpx;
+  padding: 12rpx 30rpx;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4rpx 8rpx rgba(255, 107, 129, 0.3);
+  z-index: 2;
+}
+.create-icon.data-v-96ba783d {
+  font-size: 32rpx;
+  margin-right: 8rpx;
+}
+
+/* 兑换券列表 */
+.coupon-list.data-v-96ba783d {
+
+  height: calc(100vh - 240rpx);
+}
+.coupon-card.data-v-96ba783d {
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.coupon-header.data-v-96ba783d {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.coupon-title.data-v-96ba783d {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+.coupon-date.data-v-96ba783d {
+  font-size: 24rpx;
+  color: #999;
+}
+.coupon-desc.data-v-96ba783d {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  line-height: 1.5;
+}
+.coupon-footer.data-v-96ba783d {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+.coupon-user.data-v-96ba783d {
+  font-size: 26rpx;
+  color: #888;
+  display: flex;
+  flex-direction: column;
+}
+.complete-date.data-v-96ba783d {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+.coupon-actions.data-v-96ba783d {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20rpx;
+}
+.btn.data-v-96ba783d {
+  font-size: 24rpx;
+  padding: 10rpx 24rpx;
+  border-radius: 30rpx;
+  border: none;
+}
+.complete-btn.data-v-96ba783d {
+  background-color: #42b983;
+  color: white;
+}
+.delete-btn.data-v-96ba783d {
+  background-color: #ff6b6b;
+  color: white;
+}
+.cancel-btn.data-v-96ba783d {
+  background-color: #f5f5f5;
+  color: #666;
+  width: 150rpx;
+  border-radius:10rpx;
+}
+.confirm-btn.data-v-96ba783d {
+  background-color: #4285f4;
+  color: white;
+  width: 150rpx;
+  border-radius:10rpx;
+}
+
+
+/* 空列表提示 */
+.empty-list.data-v-96ba783d {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 创建兑换券弹窗 */
+.create-modal.data-v-96ba783d {
+  width: 650rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+}
+.modal-title.data-v-96ba783d {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+.modal-content.data-v-96ba783d {
+  margin-bottom: 30rpx;
+}
+.input-group.data-v-96ba783d {
+  margin-bottom: 20rpx;
+}
+.label.data-v-96ba783d {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+.input-field.data-v-96ba783d {
+  width: 95%;
+  height: 80rpx;
+  border: 1px solid #eee;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+.textarea-field.data-v-96ba783d {
+  width: 95%;
+  height: 200rpx;
+  border: 1px solid #eee;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+.modal-footer.data-v-96ba783d {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 确认弹窗 */
+.confirm-modal.data-v-96ba783d {
+  width: 500rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+}

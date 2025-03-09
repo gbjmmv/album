@@ -1,0 +1,105 @@
+
+.favorites-page {
+  padding: 20rpx;
+  min-height: 100vh;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.actions {
+  display: flex;
+  gap: 20rpx;
+}
+.select-btn, .cancel-btn, .delete-btn {
+  font-size: 24rpx;
+  padding: 6rpx 20rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1); /* 添加轻微的阴影 */
+  transition: all 0.2s ease; /* 添加过渡效果 */
+}
+.select-btn {
+  background-color: #f8f8f8;
+  color: #333;
+}
+.select-btn:hover {
+  background-color: #e0e0e0; /* 鼠标悬停时背景色变深 */
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.15); /* 悬停时阴影加深 */
+}
+.cancel-btn {
+  background-color: #f0f0f0;
+  color: #666;
+}
+.cancel-btn:hover {
+  background-color: #d9d9d9; /* 鼠标悬停时背景色变深 */
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.15); /* 悬停时阴影加深 */
+}
+.delete-btn {
+  background-color: #ff4d4f;
+  color: #fff;
+}
+.delete-btn:hover {
+  background-color: #ff1a1d; /* 鼠标悬停时背景色变深 */
+  box-shadow: 0 4rpx 8rpx rgba(255, 77, 79, 0.3); /* 悬停时阴影加深 */
+}
+.photos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5rpx;
+}
+.photo-item {
+  position: relative;
+  width: calc(33.333% - 10rpx);
+  padding-bottom: calc(33.333% - 10rpx);
+  margin: 5rpx;
+  overflow: hidden;
+}
+.photo-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.select-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.select-overlay.selected {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 4rpx solid #1890ff;
+}
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+.empty-image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+.empty-text {
+  color: #666;
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+.empty-subtext {
+  color: #999;
+  font-size: 26rpx;
+}

@@ -1,0 +1,104 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/user/user",
+      "style": {
+        "navigationBarTitleText": "哈基米"
+      }
+    },
+    {
+      "path": "pages/confirm/confirm",
+      "style": {
+        "navigationBarTitleText": "上传到相册"
+      }
+    },
+    {
+      "path": "pages/album_list/album_list",
+      "style": {
+        "navigationBarTitleText": "全部相册"
+      }
+    },
+    {
+      "path": "pages/profile/profile",
+      "style": {
+        "navigationBarTitleText": "个人信息"
+      }
+    },
+    {
+      "path": "pages/album/album",
+      "style": {
+        "navigationBarTitleText": "个人相册"
+      }
+    },
+    {
+      "path": "pages/AlbumPage/AlbumPage",
+      "style": {
+        "navigationBarTitleText": "相册",
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 50
+      }
+    },
+    {
+      "path": "pages/PhotoDetail/PhotoDetail",
+      "style": {
+        "navigationBarTitleText": "好好看照片！"
+      }
+    },
+    {
+      "path": "pages/FavoritesPage/FavoritesPage",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+	{
+	  "path": "pages/other/other",
+	  "style": {
+	    "navigationBarTitleText": ""
+	  }
+	},
+    {
+      "path": "pages/Comments/Comments",
+      "style": {
+        "navigationBarTitleText": "我的评论",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+    	"path" : "pages/coupon/coupon",
+    	"style" : 
+    	{
+    		"navigationBarTitleText" : "煲煲兑换券"
+    	}
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "text": "个人主页",
+        "pagePath": "pages/user/user",
+        "iconPath": "static/image/user.png",
+        "selectedIconPath": "static/image/user-h.png"
+      },
+	  {
+	    "text": "其他功能待定",
+	    "pagePath": "pages/other/other",
+	    "iconPath": "/static/image/classify.png",
+	    "selectedIconPath": "static/image/classify-h.png"
+	  }
+	
+    ]
+  },
+  "uniIdRouter": {}
+}

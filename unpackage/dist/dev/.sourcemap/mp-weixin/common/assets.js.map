@@ -1,0 +1,1 @@
+{"version":3,"file":"assets.js","sources":["../../../../../static/images/empty-album.png","../../../../../static/images/empty-favorites.png"],"sourcesContent":["export default \"/static/images/empty-album.png\"","export default \"/static/images/empty-favorites.png\""],"names":[],"mappings":";AAAA,MAAe,eAAA;ACAf,MAAe,aAAA;;;"}
