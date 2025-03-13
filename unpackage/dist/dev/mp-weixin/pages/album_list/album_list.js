@@ -26,6 +26,7 @@ const _sfc_main = {
       }
     };
     common_vendor.onLoad(async () => {
+      common_vendor.index.__f__("log", "at pages/album_list/album_list.vue:21", "触发onLoad");
       await getAlbum();
     });
     const inputValue = common_vendor.ref("");

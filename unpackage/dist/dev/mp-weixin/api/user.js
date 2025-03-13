@@ -4,7 +4,6 @@ const utils_http = require("../utils/http.js");
 const loginAPI = (code) => {
   return utils_http.http.postJSON("/user/login", {
     code
-    // 确保是以对象形式传递
   });
 };
 const getUserInfoAPI = () => {

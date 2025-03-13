@@ -13,7 +13,6 @@ export function deleteSubAlbum(id) {
 
 // 修改子相册名称
 export function updateSubAlbum(id, name) {
-    // 将参数作为查询参数附加到URL上 - 适用于@RequestParam
     return http.put(`/sub-albums/${id}?name=${encodeURIComponent(name)}`)
 }
 

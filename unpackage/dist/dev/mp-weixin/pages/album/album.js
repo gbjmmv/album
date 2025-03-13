@@ -36,8 +36,8 @@ const _sfc_main = {
     const showCreateDialog = common_vendor.ref(false);
     const albumName = common_vendor.ref("");
     const openCreateDialog = () => {
-      showCreateDialog.value = true;
       albumName.value = "";
+      showCreateDialog.value = true;
     };
     const closeCreateDialog = () => {
       showCreateDialog.value = false;
@@ -58,10 +58,13 @@ const _sfc_main = {
     common_vendor.onLoad(async () => {
       await getAlbum();
     });
+    common_vendor.onShow(async () => {
+      await getAlbum();
+    });
     const confirmCreate = async () => {
       if (albumName.value.trim()) {
         await albumStore.createNewAlbum(albumName.value);
-        common_vendor.index.__f__("log", "at pages/album/album.vue:60", "创建新相册:", albumName.value);
+        common_vendor.index.__f__("log", "at pages/album/album.vue:64", "创建新相册:", albumName.value);
         closeCreateDialog();
         await getAlbum();
       } else {
@@ -74,7 +77,7 @@ const _sfc_main = {
     const confirmEdit = async () => {
       if (editAlbumName.value.trim()) {
         await albumStore.updateAlbum(currentEditId.value, editAlbumName.value);
-        common_vendor.index.__f__("log", "at pages/album/album.vue:79", "更新相册 - ID:", currentEditId.value, "新名称:", editAlbumName.value);
+        common_vendor.index.__f__("log", "at pages/album/album.vue:83", "更新相册 - ID:", currentEditId.value, "新名称:", editAlbumName.value);
         closeEditDialog();
         await getAlbum();
       } else {
@@ -89,12 +92,13 @@ const _sfc_main = {
       currentEditId.value = null;
     };
     const handleClick = (album) => {
-      common_vendor.index.__f__("log", "at pages/album/album.vue:100", "点击相册:", album);
+      common_vendor.index.__f__("log", "at pages/album/album.vue:104", "点击相册:", album);
       common_vendor.index.navigateTo({
         url: `/pages/AlbumPage/AlbumPage?id=${album.id}&name=${encodeURIComponent(album.name)}`
       });
     };
     const handleSwipeClick = (e, item, index) => {
+      common_vendor.index.__f__("log", "at pages/album/album.vue:111", e);
       if (e.index === 0) {
         handleEdit(item.id, item.name);
       } else if (e.index === 1) {
@@ -102,13 +106,13 @@ const _sfc_main = {
       }
     };
     const handleEdit = (id, name) => {
-      common_vendor.index.__f__("log", "at pages/album/album.vue:116", "编辑相册：id=" + id + ", name=" + name);
+      common_vendor.index.__f__("log", "at pages/album/album.vue:121", "编辑相册：id=" + id + ", name=" + name);
       currentEditId.value = id;
       editAlbumName.value = name;
       showEditDialog.value = true;
     };
     const handleDelete = (item) => {
-      common_vendor.index.__f__("log", "at pages/album/album.vue:126", "删除相册：", item);
+      common_vendor.index.__f__("log", "at pages/album/album.vue:131", "删除相册：", item);
       common_vendor.index.showModal({
         title: "提示",
         content: "确定要删除该相册吗？",
@@ -129,8 +133,8 @@ const _sfc_main = {
             c: subAlbum.coverPhotoUrl,
             d: common_vendor.o(($event) => handleClick(subAlbum), subAlbum.id),
             e: common_vendor.o(($event) => handleSwipeClick($event, subAlbum), subAlbum.id),
-            f: "02313f6f-1-" + i0 + "," + ("02313f6f-0-" + i0),
-            g: "02313f6f-0-" + i0,
+            f: "1eaa64fa-1-" + i0 + "," + ("1eaa64fa-0-" + i0),
+            g: "1eaa64fa-0-" + i0,
             h: subAlbum.id
           };
         }),

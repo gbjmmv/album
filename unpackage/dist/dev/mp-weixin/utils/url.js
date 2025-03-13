@@ -1,5 +1,5 @@
 "use strict";
-const BASE_URL = "https://xinliang.fun/api/wx";
+const BASE_URL = "http://localhost:8080";
 const getAvatarUrl = (url) => {
   if (!url)
     return "";

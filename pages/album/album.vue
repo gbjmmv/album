@@ -21,13 +21,14 @@ const options = reactive([
   }
 ]);
 
-// 创建相册相关
+
 const showCreateDialog = ref(false);
 const albumName = ref('');
 
 const openCreateDialog = () => {
+  albumName.value = '';
   showCreateDialog.value = true;
-  albumName.value = '';  // 重置输入框
+
 };
 
 const closeCreateDialog = () => {
@@ -51,6 +52,9 @@ const getAlbum = async () => {
 }
 
 onLoad(async ()=>{
+  await getAlbum()
+})
+onShow(async ()=>{
   await getAlbum()
 })
 
@@ -104,7 +108,8 @@ const handleClick = (album) => {
 }
 
 const handleSwipeClick = (e, item, index) => {
-  // e.index 是点击的按钮索引，0是第一个按钮(编辑)，1是第二个按钮(删除)
+  console.log(e)
+  // 0是(编辑)，1是(删除)
   if (e.index === 0) {
     handleEdit(item.id, item.name);
   } else if (e.index === 1) {
@@ -168,8 +173,9 @@ const handleDelete = (item) => {
     </view>
 
     <!-- 创建相册弹窗 -->
-    <view class="dialog-overlay" v-if="showCreateDialog" @click.stop="closeCreateDialog">
+    <view class="dialog-overlay" v-if="showCreateDialog" @click="closeCreateDialog">
       <view class="dialog-content" @click.stop>
+<!--        方式事件冒泡-->
         <view class="dialog-header">
           <text class="dialog-title">创建新相册</text>
         </view>
@@ -306,6 +312,7 @@ const handleDelete = (item) => {
 
 /* 弹窗样式 */
 .dialog-overlay {
+
   position: fixed;
   top: 0;
   left: 0;

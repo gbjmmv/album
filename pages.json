@@ -40,7 +40,6 @@
       "path": "pages/AlbumPage/AlbumPage",
       "style": {
         "navigationBarTitleText": "相册",
-        "enablePullDownRefresh": true,
         "onReachBottomDistance": 50
       }
     },

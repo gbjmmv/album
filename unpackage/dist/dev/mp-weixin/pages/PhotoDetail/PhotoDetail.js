@@ -39,7 +39,6 @@ const _sfc_main = {
     });
     const currentPhoto = common_vendor.computed(() => {
       if (photosData.value.length > 0 && currentIndex.value < photosData.value.length) {
-        common_vendor.index.__f__("log", "at pages/PhotoDetail/PhotoDetail.vue:35", photosData.value[currentIndex.value].comments);
         return photosData.value[currentIndex.value];
       }
       return {};
@@ -50,7 +49,6 @@ const _sfc_main = {
       }
     });
     common_vendor.onLoad(async (option) => {
-      common_vendor.index.__f__("log", "at pages/PhotoDetail/PhotoDetail.vue:50", "Photo detail loaded with options:", option);
       photoId.value = option.id;
       if (option.source) {
         source.value = option.source;
@@ -64,7 +62,7 @@ const _sfc_main = {
       }
     });
     common_vendor.onShow(() => {
-      common_vendor.index.__f__("log", "at pages/PhotoDetail/PhotoDetail.vue:71", "Photo detail showed");
+      common_vendor.index.__f__("log", "at pages/PhotoDetail/PhotoDetail.vue:74", "Photo detail showed");
       if (photoId.value && photosData.value.length > 0) {
         const index = photosData.value.findIndex((photo) => photo.id === parseInt(photoId.value));
         if (index > -1) {
@@ -73,7 +71,6 @@ const _sfc_main = {
       }
     });
     const handleSwiperChange = (e) => {
-      common_vendor.index.__f__("log", "at pages/PhotoDetail/PhotoDetail.vue:83", "Swiper changed:", e.detail);
       currentIndex.value = e.detail.current;
     };
     const toggleControls = () => {
@@ -201,7 +198,7 @@ const _sfc_main = {
         x: common_vendor.o(($event) => commentContent.value = $event.detail.value),
         y: common_vendor.o(closeCommentPopup),
         z: common_vendor.o(submitComment),
-        A: common_vendor.sr(commentPopup, "2ee85697-3", {
+        A: common_vendor.sr(commentPopup, "6212f8bc-3", {
           "k": "commentPopup"
         }),
         B: common_vendor.p({
@@ -215,7 +212,7 @@ const _sfc_main = {
           content: "确定要删除当前照片吗？此操作不可撤销。",
           ["before-close"]: true
         }),
-        F: common_vendor.sr(deletePopup, "2ee85697-4", {
+        F: common_vendor.sr(deletePopup, "6212f8bc-4", {
           "k": "deletePopup"
         }),
         G: common_vendor.p({
@@ -226,7 +223,7 @@ const _sfc_main = {
           message: favoriteMessage.value.content,
           duration: 2e3
         }),
-        I: common_vendor.sr(favoritePopup, "2ee85697-6", {
+        I: common_vendor.sr(favoritePopup, "6212f8bc-6", {
           "k": "favoritePopup"
         }),
         J: common_vendor.p({

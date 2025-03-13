@@ -1,23 +1,26 @@
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
-import { onLoad, onShow, onUnload } from '@dcloudio/uni-app'
-import { usePhotoStore } from '@/stores/photo.js'
-import { getAvatarUrl } from '@/utils/url.js'
+import {ref, computed, onMounted, watch} from 'vue'
+import {onLoad, onShow, onUnload} from '@dcloudio/uni-app'
+import {usePhotoStore} from '@/stores/photo.js'
+import {getAvatarUrl} from '@/utils/url.js'
 
 // 路由参数
+
+//当前显示的照片id
 const photoId = ref(null)
-const initialIndex = ref(0)
+const initialIndex = ref(0) // 初始索引位置
 const source = ref('album') // 默认来源为相册
 
 // 状态
-const currentIndex = ref(0)
-const showControls = ref(true)
+const currentIndex = ref(0) // 当前查看的照片索引
+
+const showControls = ref(true)// 是否显示控制面板
 const commentPopup = ref(null)
 const deletePopup = ref(null)
 const favoritePopup = ref(null)
 const commentContent = ref('')
-const favoriteMessage = ref({ type: 'success', content: '' })
-const isDragging = ref(false)
+const favoriteMessage = ref({type: 'success', content: ''})
+const isDragging = ref(false) // 是否正在拖拽
 
 // 获取照片store
 const photoStore = usePhotoStore()
@@ -30,13 +33,14 @@ const photosData = computed(() => {
   return photoStore.currentAlbumPhotos
 })
 
+// 当前显示的照片
 const currentPhoto = computed(() => {
   if (photosData.value.length > 0 && currentIndex.value < photosData.value.length) {
-    console.log(photosData.value[currentIndex.value].comments)
     return photosData.value[currentIndex.value]
   }
   return {}
 })
+
 
 // 监视currentIndex变化，更新photoId
 watch(currentIndex, (newIndex) => {
@@ -47,7 +51,6 @@ watch(currentIndex, (newIndex) => {
 
 // 初始化
 onLoad(async (option) => {
-  console.log('Photo detail loaded with options:', option)
   photoId.value = option.id
 
   // 设置照片来源
@@ -80,7 +83,6 @@ onShow(() => {
 
 // 处理swiper切换
 const handleSwiperChange = (e) => {
-  console.log('Swiper changed:', e.detail)
   currentIndex.value = e.detail.current
 }
 
@@ -90,18 +92,8 @@ const toggleControls = () => {
   showControls.value = !showControls.value
 }
 
-// 上一张/下一张导航
-const prevPhoto = () => {
-  if (currentIndex.value > 0) {
-    currentIndex.value -= 1
-  }
-}
 
-const nextPhoto = () => {
-  if (currentIndex.value < albumPhotos.value.length - 1) {
-    currentIndex.value += 1
-  }
-}
+
 
 // 返回上一页
 const goBack = () => {
@@ -194,8 +186,6 @@ const formatDate = (dateString) => {
 </script>
 
 <template>
-
-
   <view class="photo-detail">
     <!-- Swiper 组件作为主要滑动容器 -->
     <swiper
@@ -235,13 +225,13 @@ const formatDate = (dateString) => {
       <!-- 右侧操作按钮 -->
       <view class="side-action-buttons" @click.stop>
         <view class="action-button" @click="showCommentInput">
-          <uni-icons type="chat" size="28" color="#FFFFFF" />
+          <uni-icons type="chat" size="28" color="#FFFFFF"/>
         </view>
         <view class="action-button" @click="handleToggleFavorite">
-          <uni-icons :type="currentPhoto?.isFavorite ? 'star-filled' : 'star'" size="28" color="#FFFFFF" />
+          <uni-icons :type="currentPhoto?.isFavorite ? 'star-filled' : 'star'" size="28" color="#FFFFFF"/>
         </view>
         <view class="action-button" @click="showDeleteConfirm">
-          <uni-icons type="trash" size="28" color="#FFFFFF" />
+          <uni-icons type="trash" size="28" color="#FFFFFF"/>
         </view>
       </view>
 
@@ -264,7 +254,6 @@ const formatDate = (dateString) => {
         </view>
       </view>
     </view>
-
 
 
     <!-- 评论输入框弹窗 -->
@@ -309,7 +298,6 @@ const formatDate = (dateString) => {
     </uni-popup>
   </view>
 </template>
-
 
 
 <style>

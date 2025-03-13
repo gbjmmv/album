@@ -1,6 +1,5 @@
 {
   "navigationBarTitleText": "相册",
-  "enablePullDownRefresh": true,
   "onReachBottomDistance": 50,
   "usingComponents": {
     "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons",

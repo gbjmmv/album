@@ -7,6 +7,7 @@ import { getAvatarUrl } from '@/utils/url.js'
 // 获取路由参数
 const albumId = ref(null)
 const albumName = ref('')
+
 const isSelectMode = ref(false)
 const selectedPhotoIds = ref([])
 const deletePopup = ref(null)
@@ -19,9 +20,7 @@ const isLoading = computed(() => photoStore.isLoading)
 // 从路由获取小相册ID
 onLoad((option) => {
   albumId.value = option.id
-  albumName.value = decodeURIComponent(option.name) || '相册'
-
-
+  albumName.value = option.name || '相册'
 })
 
 // 每次显示页面时刷新数据
@@ -212,10 +211,6 @@ const chooseImages = () => {
   color: #333;
 }
 
-.select-btn:hover {
-  background-color: #e0e0e0; /* 鼠标悬停时背景色变深 */
-  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.15); /* 悬停时阴影加深 */
-}
 
 .cancel-btn {
   background-color: #f0f0f0;

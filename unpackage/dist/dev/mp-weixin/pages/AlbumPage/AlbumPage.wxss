@@ -27,10 +27,6 @@
   background-color: #f8f8f8;
   color: #333;
 }
-.select-btn:hover {
-  background-color: #e0e0e0; /* 鼠标悬停时背景色变深 */
-  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.15); /* 悬停时阴影加深 */
-}
 .cancel-btn {
   background-color: #f0f0f0;
   color: #666;

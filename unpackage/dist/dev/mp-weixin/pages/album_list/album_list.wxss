@@ -1,9 +1,9 @@
 
-.container .right{
+.container .right {
   padding-right: 35rpx;
   text-align: right;
 }
-.container .right .title{
+.container .right .title {
   font-size: 40rpx;
 }
 .container .left image {
@@ -20,7 +20,7 @@
   width: 400rpx;
   height: 150rpx;
 }
-button{
+button {
   margin-top: 30rpx;
   height: 60rpx;
   width: 120rpx;

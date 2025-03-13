@@ -80,6 +80,7 @@
 
 /* 弹窗样式 */
 .dialog-overlay {
+
   position: fixed;
   top: 0;
   left: 0;

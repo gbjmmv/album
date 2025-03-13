@@ -2,14 +2,14 @@
 import {ref} from 'vue'
 import {useAlbumStore} from '@/stores/album.js'
 import {getAvatarUrl} from "@/utils/url";
-import {onLoad} from '@dcloudio/uni-app'
+import {onLoad, onShow} from '@dcloudio/uni-app'
 
 const albumStore = useAlbumStore()
 const albumList = ref([])
 const getAlbum = async () => {
   albumList.value = await albumStore.getAlbumList()
-  for(let i=0; i<albumList.value.length; i++) {
-    if(albumList.value[i].coverPhotoUrl){
+  for (let i = 0; i < albumList.value.length; i++) {
+    if (albumList.value[i].coverPhotoUrl) {
       albumList.value[i].coverPhotoUrl = getAvatarUrl(albumList.value[i].coverPhotoUrl)
     } else {
       albumList.value[i].coverPhotoUrl = "/static/image/classify.png"
@@ -18,27 +18,27 @@ const getAlbum = async () => {
 }
 
 onLoad(async () => {
+  console.log("触发onLoad")
   await getAlbum()
 })
 
 
-const inputValue = ref("")
-const choose = (id,index) => {
 
+const inputValue = ref("")
+const choose = (id, index) => {
   albumStore.id_index.value = {
     id,
     index
-};
-
-
-
+  };
   // 返回上一个页面
   uni.navigateBack();
 }
 const show = ref(false)
+
 function createNewAlbum() {
   show.value = true
 }
+
 function cancelNewAlbum() {
   show.value = false
 }
@@ -47,6 +47,7 @@ function cancelNewAlbum() {
 
 
 <template>
+
   <view class="container-whole">
     <view class="list" v-for="(item,index) in albumList"
           :key="item.id">
@@ -70,7 +71,7 @@ function cancelNewAlbum() {
   <view class="name" v-show="show">
     <input class="input" v-model="inputValue" placeholder="请输入相册名"/>
     <button>确认</button>
-    <button @click = "cancelNewAlbum">取消</button>
+    <button @click="cancelNewAlbum">取消</button>
   </view>
 
 </template>
@@ -79,15 +80,16 @@ function cancelNewAlbum() {
 <style>
 
 
-.container .right{
+.container .right {
   padding-right: 35rpx;
   text-align: right;
 }
 
 
-.container .right .title{
+.container .right .title {
   font-size: 40rpx;
 }
+
 .container .left image {
   height: 120rpx;
   width: 120rpx;
@@ -104,13 +106,14 @@ function cancelNewAlbum() {
   height: 150rpx;
 }
 
-button{
+button {
   margin-top: 30rpx;
   height: 60rpx;
   width: 120rpx;
   font-size: 30rpx;
   line-height: 60rpx;
 }
+
 .name {
   width: 100%;
   display: flex;

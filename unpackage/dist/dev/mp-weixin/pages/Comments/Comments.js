@@ -93,7 +93,7 @@ const _sfc_main = {
         })
       } : {}), {
         c: common_vendor.unref(commentStore).isEmpty,
-        h: common_vendor.sr(commentOptionsRef, "6d900e4f-2", {
+        h: common_vendor.sr(commentOptionsRef, "ea48c0cc-2", {
           "k": "commentOptionsRef"
         }),
         i: common_vendor.o(handleCommentUpdate),

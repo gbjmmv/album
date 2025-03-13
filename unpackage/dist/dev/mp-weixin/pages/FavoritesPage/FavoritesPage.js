@@ -113,7 +113,7 @@ const _sfc_main = {
           }, isSelectMode.value ? common_vendor.e({
             b: isPhotoSelected(photo)
           }, isPhotoSelected(photo) ? {
-            c: "3c692a1d-0-" + i0,
+            c: "bf984cb0-0-" + i0,
             d: common_vendor.p({
               type: "checkbox-filled",
               size: "24",
@@ -146,7 +146,7 @@ const _sfc_main = {
           content: "确定要取消收藏所选照片吗？",
           ["before-close"]: true
         }),
-        r: common_vendor.sr(favoritePopup, "3c692a1d-2", {
+        r: common_vendor.sr(favoritePopup, "bf984cb0-2", {
           "k": "favoritePopup"
         }),
         s: common_vendor.p({

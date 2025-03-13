@@ -30,7 +30,7 @@ const _sfc_main = {
     const isLoading = common_vendor.computed(() => photoStore.isLoading);
     common_vendor.onLoad((option) => {
       albumId.value = option.id;
-      albumName.value = decodeURIComponent(option.name) || "相册";
+      albumName.value = option.name || "相册";
     });
     common_vendor.onShow(() => {
       fetchPhotos();
@@ -85,7 +85,7 @@ const _sfc_main = {
       closeDeletePopup();
     };
     const chooseImages = () => {
-      common_vendor.index.__f__("log", "at pages/AlbumPage/AlbumPage.vue:103", "albumId.value: ", albumId.value);
+      common_vendor.index.__f__("log", "at pages/AlbumPage/AlbumPage.vue:102", "albumId.value: ", albumId.value);
       common_vendor.index.chooseImage({
         count: 9,
         sourceType: ["album"],
@@ -123,7 +123,7 @@ const _sfc_main = {
           }, isSelectMode.value ? common_vendor.e({
             b: isPhotoSelected(photo)
           }, isPhotoSelected(photo) ? {
-            c: "6ba72fcd-0-" + i0,
+            c: "64539a58-0-" + i0,
             d: common_vendor.p({
               type: "checkbox-filled",
               size: "24",
@@ -145,7 +145,7 @@ const _sfc_main = {
           content: "确定要删除所选照片吗？此操作不可撤销。",
           ["before-close"]: true
         }),
-        m: common_vendor.sr(deletePopup, "6ba72fcd-1", {
+        m: common_vendor.sr(deletePopup, "64539a58-1", {
           "k": "deletePopup"
         }),
         n: common_vendor.p({

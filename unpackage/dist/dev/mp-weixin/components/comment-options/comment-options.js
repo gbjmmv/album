@@ -80,7 +80,7 @@ const _sfc_main = {
         a: common_vendor.o(handleEdit),
         b: common_vendor.o(handleDelete),
         c: common_vendor.o(closePopup),
-        d: common_vendor.sr(commentOptionsPopup, "2d837106-0", {
+        d: common_vendor.sr(commentOptionsPopup, "00e8e452-0", {
           "k": "commentOptionsPopup"
         }),
         e: common_vendor.p({
@@ -96,7 +96,7 @@ const _sfc_main = {
           mode: "input",
           modelValue: editContent.value
         }),
-        j: common_vendor.sr(editCommentPopup, "2d837106-1", {
+        j: common_vendor.sr(editCommentPopup, "00e8e452-1", {
           "k": "editCommentPopup"
         }),
         k: common_vendor.p({
@@ -111,7 +111,7 @@ const _sfc_main = {
           confirmText: "删除",
           cancelText: "取消"
         }),
-        o: common_vendor.sr(deleteConfirmPopup, "2d837106-3", {
+        o: common_vendor.sr(deleteConfirmPopup, "00e8e452-3", {
           "k": "deleteConfirmPopup"
         }),
         p: common_vendor.p({

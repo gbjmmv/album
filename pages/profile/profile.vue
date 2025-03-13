@@ -1,9 +1,9 @@
 <script setup>
-import {ref} from 'vue'
+import {ref,computed,watch,watchEffect} from 'vue'
 import {useUserStore} from '@/stores/user.js'
 import {onLoad, onShow} from '@dcloudio/uni-app'
 import {getAvatarUrl} from '@/utils/url.js'
-
+const isAvatarChanged = ref(false)
 const isNicknameEditing = ref(false)
 const isPartnerIdEditing = ref(false)
 const handleNicknameEdit = () => {
@@ -11,6 +11,8 @@ const handleNicknameEdit = () => {
   setTimeout(() => {
   }, 100)
 }
+
+
 const handlePartnerIdEdit = () => {
   isPartnerIdEditing.value = true
 }
@@ -20,17 +22,25 @@ const handleNicknameBlur = () => {
 const handlePartnerIdBlur = () => {
   isPartnerIdEditing.value = false
 }
+
+
 const userStore = useUserStore()
 const profile = ref({
   nickname: '',
   partner_id: '',
   avatarFile: null
 })
+
 const currentProfile = ref({
   id: '',
   nickname: '',
   partner_id: '',
   avatarFile: null
+})
+
+watchEffect(()=>{
+  console.log('Current avatar:', currentProfile.value.avatarFile)
+  console.log('Is avatar changed:', isAvatarChanged.value)
 })
 onLoad(() => {
   const {userInfo} = userStore.getStoredInfo()
@@ -42,35 +52,41 @@ onLoad(() => {
       partner_id: userInfo[0].partner_id,
     }
   } else {
-    // 处理无用户信息的情况
     uni.showToast({
       title: '获取用户信息失败',
       icon: 'none'
     })
-    // 可能需要跳转到登录页
     uni.navigateTo({url: '/pages/user/user'})
   }
 })
 onShow(async () => {
-  const userInfo = await userStore.getUserInfo()
-  currentProfile.value = {
-    id: userInfo[0].id,
-    nickname: userInfo[0].nickname,
-    avatarFile: getAvatarUrl(userInfo[0].avatarUrl),
-    partner_id: userInfo[0].partner_id,
+  console.log("onshow触发")
+  if (!isAvatarChanged.value) {
+    const userInfo = await userStore.getUserInfo()
+    currentProfile.value = {
+      id: userInfo[0].id,
+      nickname: userInfo[0].nickname,
+      avatarFile: getAvatarUrl(userInfo[0].avatarUrl),
+      partner_id: userInfo[0].partner_id,
+    }
   }
 })
+
+
 // 选择头像
 const chooseAvatar = async () => {
+  isAvatarChanged.value = true
   try {
     const res = await uni.chooseImage({
       count: 1,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera']
     })
+
     profile.value.avatarFile = res.tempFilePaths[0]
     currentProfile.value.avatarFile = res.tempFilePaths[0]
-    console.log(res.tempFilePaths[0])
+
+
   } catch (error) {
     console.error('选择图片失败：', error)
   }
@@ -85,14 +101,13 @@ const updateProfile = async () => {
     partner_id: userInfo[0].partner_id,
   }
 }
-// 提交个人信息
 const submitProfile = async () => {
   try {
-    // 显示加载状态
     uni.showLoading({
       title: '更新中...'
     })
     const res = await userStore.updateProfile(profile.value)
+    isAvatarChanged.value = false
     profile.value = {
       nickname: '',
       partner_id: '',
@@ -107,6 +122,8 @@ const submitProfile = async () => {
     } else {
       throw new Error(res.error)
     }
+
+
   } catch (error) {
     uni.hideLoading()
     uni.showToast({

@@ -1,6 +1,6 @@
 "use strict";
 const common_vendor = require("../common/vendor.js");
-const baseURL = "https://xinliang.fun/api/wx";
+const baseURL = "http://localhost:8080";
 const httpRequest = {
   config: {
     baseURL,
@@ -79,7 +79,7 @@ const httpRequest = {
           formData: { ...formData, fileIndex: index },
           header,
           success: (response) => {
-            common_vendor.index.__f__("log", "at utils/http.js:98", `Upload response for file ${index}:`, response);
+            common_vendor.index.__f__("log", "at utils/http.js:96", `Upload response for file ${index}:`, response);
             try {
               const data = JSON.parse(response.data);
               resolve(data);
@@ -88,7 +88,7 @@ const httpRequest = {
             }
           },
           fail: (error) => {
-            common_vendor.index.__f__("error", "at utils/http.js:107", `Upload failed for file ${index}:`, error);
+            common_vendor.index.__f__("error", "at utils/http.js:105", `Upload failed for file ${index}:`, error);
             common_vendor.index.showToast({
               title: `第${index + 1}个文件上传失败`,
               icon: "none"
@@ -101,7 +101,7 @@ const httpRequest = {
     return Promise.all(uploadPromises).then((results) => {
       return fileList.length === 1 ? results[0] : results;
     }).catch((error) => {
-      common_vendor.index.__f__("error", "at utils/http.js:126", "One or more uploads failed:", error);
+      common_vendor.index.__f__("error", "at utils/http.js:124", "One or more uploads failed:", error);
       throw error;
     });
   }
@@ -138,7 +138,6 @@ const http = {
       }
     });
   },
-  // 新增的PUT方法 - JSON格式
   put(url, data = {}, options = {}) {
     return httpRequest.request({
       ...options,
@@ -150,7 +149,6 @@ const http = {
       }
     });
   },
-  // 新增的PUT方法 - 表单格式
   putForm(url, data = {}, options = {}) {
     return httpRequest.request({
       ...options,
@@ -162,7 +160,6 @@ const http = {
       }
     });
   },
-  // 新增的DELETE方法
   delete(url, data = {}, options = {}) {
     return httpRequest.request({
       ...options,

@@ -13,6 +13,7 @@ if (!Math) {
 const _sfc_main = {
   __name: "profile",
   setup(__props) {
+    const isAvatarChanged = common_vendor.ref(false);
     const isNicknameEditing = common_vendor.ref(false);
     const isPartnerIdEditing = common_vendor.ref(false);
     const handleNicknameEdit = () => {
@@ -41,6 +42,10 @@ const _sfc_main = {
       partner_id: "",
       avatarFile: null
     });
+    common_vendor.watchEffect(() => {
+      common_vendor.index.__f__("log", "at pages/profile/profile.vue:42", "Current avatar:", currentProfile.value.avatarFile);
+      common_vendor.index.__f__("log", "at pages/profile/profile.vue:43", "Is avatar changed:", isAvatarChanged.value);
+    });
     common_vendor.onLoad(() => {
       const { userInfo } = userStore.getStoredInfo();
       if (userInfo == null ? void 0 : userInfo[0]) {
@@ -59,15 +64,19 @@ const _sfc_main = {
       }
     });
     common_vendor.onShow(async () => {
-      const userInfo = await userStore.getUserInfo();
-      currentProfile.value = {
-        id: userInfo[0].id,
-        nickname: userInfo[0].nickname,
-        avatarFile: utils_url.getAvatarUrl(userInfo[0].avatarUrl),
-        partner_id: userInfo[0].partner_id
-      };
+      common_vendor.index.__f__("log", "at pages/profile/profile.vue:63", "onshow触发");
+      if (!isAvatarChanged.value) {
+        const userInfo = await userStore.getUserInfo();
+        currentProfile.value = {
+          id: userInfo[0].id,
+          nickname: userInfo[0].nickname,
+          avatarFile: utils_url.getAvatarUrl(userInfo[0].avatarUrl),
+          partner_id: userInfo[0].partner_id
+        };
+      }
     });
     const chooseAvatar = async () => {
+      isAvatarChanged.value = true;
       try {
         const res = await common_vendor.index.chooseImage({
           count: 1,
@@ -76,14 +85,13 @@ const _sfc_main = {
         });
         profile.value.avatarFile = res.tempFilePaths[0];
         currentProfile.value.avatarFile = res.tempFilePaths[0];
-        common_vendor.index.__f__("log", "at pages/profile/profile.vue:73", res.tempFilePaths[0]);
       } catch (error) {
-        common_vendor.index.__f__("error", "at pages/profile/profile.vue:75", "选择图片失败：", error);
+        common_vendor.index.__f__("error", "at pages/profile/profile.vue:91", "选择图片失败：", error);
       }
     };
     const updateProfile = async () => {
       const userInfo = await userStore.getUserInfo();
-      common_vendor.index.__f__("log", "at pages/profile/profile.vue:80", "userInfo", userInfo);
+      common_vendor.index.__f__("log", "at pages/profile/profile.vue:96", "userInfo", userInfo);
       currentProfile.value = {
         id: userInfo[0].id,
         nickname: userInfo[0].nickname,
@@ -97,6 +105,7 @@ const _sfc_main = {
           title: "更新中..."
         });
         const res = await userStore.updateProfile(profile.value);
+        isAvatarChanged.value = false;
         profile.value = {
           nickname: "",
           partner_id: "",

@@ -18,7 +18,7 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "3.7.8",
+  "libVersion": "3.7.9",
   "appid": "wx4ac6c3049e8320f2",
   "projectname": "宝宝照片",
   "condition": {

@@ -1,8 +1,7 @@
-const isDev = process.env.NODE_ENV === 'development'
-//const baseURL = isDev ? 'http://localhost:8080' : ''  // 生产环境URL待定
+const baseURL = 'http://localhost:8080'
 
-const baseURL = 'https://xinliang.fun/api/wx'
-//const baseURL = 'http://1.95.63.156:8080'
+// const baseURL = 'https://xinliang.fun/api/wx'
+// const baseURL = 'http://1.95.63.156:8080'
 
 
 // 创建请求对象
@@ -52,9 +51,8 @@ const httpRequest = {
 
     // 请求方法
     request(options = {}) {
-        options = { ...this.config, ...options }
+        options = { ...this.config, ...options } //合并配置
         options = this.requestInterceptor(options)
-
         return new Promise((resolve, reject) => {
             options.success = (response) => {
                 try {
@@ -165,7 +163,6 @@ export const http = {
         });
     },
 
-    // 新增的PUT方法 - JSON格式
     put(url, data = {}, options = {}) {
         return httpRequest.request({
             ...options,
@@ -178,7 +175,6 @@ export const http = {
         });
     },
 
-    // 新增的PUT方法 - 表单格式
     putForm(url, data = {}, options = {}) {
         return httpRequest.request({
             ...options,
@@ -191,7 +187,6 @@ export const http = {
         });
     },
 
-    // 新增的DELETE方法
     delete(url, data = {}, options = {}) {
         return httpRequest.request({
             ...options,

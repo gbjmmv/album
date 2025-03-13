@@ -2,7 +2,7 @@ import {http} from '@/utils/http.js'
 
 export const loginAPI = (code) => {
     return http.postJSON('/user/login', {
-        code: code  // 确保是以对象形式传递
+        code: code
     })
 }
 
